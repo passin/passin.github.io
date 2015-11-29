@@ -1,0 +1,13 @@
+reiv melbourne auction result analysis program
+
+spider:
+
+	download reiv latest weekend auction result to /data/year/month/day/ dir, seperate by main and suburb first character
+
+analysis:
+
+	load suburb auction result from data dir then extract passin house address and price, use google map api get geo location then save in cache/ dir by property address
+
+show.html:
+
+	google map page with js data in github static web page service

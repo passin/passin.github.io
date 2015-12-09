@@ -57,9 +57,8 @@
     $('#date_list').on('change', function() {
       //alert( this.value ); // or $(this).val()
 
-      var locations = [];
       var infowindow = new google.maps.InfoWindow();
-      alert(markers.length);
+      console.log(markers.length);
 
       for (var i = 0; i < markers.length; i++) {
         markers[i].setMap(null);
@@ -68,7 +67,7 @@
       markers = [];
 
       $.getScript( "data/"+this.value+"/show.js", function( data, textStatus, jqxhr ) {
-        //console.log( data ); // Data returned
+        console.log( data ); // Data returned
         //console.log( textStatus ); // Success
         //console.log( jqxhr.status ); // 200
         //console.log( "Load was performed." );

@@ -52,20 +52,27 @@
       document.getElementById('legend'));
 
     var infowindow = new google.maps.InfoWindow();
+    var marker  = [];
+    var locations = [];
 
     $('#date_list').on('change', function() {
       //alert( this.value ); // or $(this).val()
+
+      locations = [];
+
+      for (var i = 0; i < marker.length; i++) {
+        marker[i].setMap(null);
+      }
+
+      marker = [];
+
       $.getScript( "data/"+this.value+"/show.js", function( data, textStatus, jqxhr ) {
         //console.log( data ); // Data returned
         //console.log( textStatus ); // Success
         //console.log( jqxhr.status ); // 200
         //console.log( "Load was performed." );
-        var marker  = [];
         var i;
 
-        for (var i = 0; i < marker.length; i++) {
-          marker[i].setMap(null);
-        }
 
         for (i = 0; i < locations.length; i++) {  
           marker = new google.maps.Marker({

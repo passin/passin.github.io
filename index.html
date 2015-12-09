@@ -50,6 +50,7 @@
           mapTypeId: google.maps.MapTypeId.ROADMAP
         });
 
+        map.controls[google.maps.ControlPosition.TOP_CENTER].push(document.getElementById('legend'));
     }
 
     var markers  = [];
@@ -67,7 +68,6 @@
     $('#date_list').on('change', function() {
       //console.log("data/"+$('#state_list').val()+"/"+this.value+"/show.js");
       clean_markers();
-      initialize();
 
       var infowindow = new google.maps.InfoWindow();
 
@@ -100,8 +100,8 @@
       });
     });
 
+    initialize();
     $( "#date_list" ).trigger( "change" );
-    map.controls[google.maps.ControlPosition.TOP_CENTER].push(document.getElementById('legend'));
 
     console.log("version: 1.8");
   </script>

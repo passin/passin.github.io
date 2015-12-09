@@ -54,6 +54,7 @@
     var i;
 
     function clean_markers() {
+      console.log(markers.length);
       for (var i = 0; i < markers.length; i++) {
         markers[i].setMap(null);
       }
@@ -76,17 +77,19 @@
 
 
         for (i = 0; i < locations.length; i++) {  
-          markers = new google.maps.Marker({
+          var marker = new google.maps.Marker({
             position: new google.maps.LatLng(locations[i][1], locations[i][2]),
             map: map
           });
 
-          google.maps.event.addListener(markers, 'click', (function(marker, i) {
+          markers.push(marker);
+
+          google.maps.event.addListener(marker, 'click', (function(marker, i) {
             return function() {
               infowindow.setContent(locations[i][0]);
               infowindow.open(map, marker);
             }
-          })(markers, i));
+          })(marker, i));
         }
 
       });
@@ -94,7 +97,6 @@
 
     $( "#date_list" ).trigger( "change" );
 
-    clean_markers();
     console.log("version: 1.4");
   </script>
 </body>

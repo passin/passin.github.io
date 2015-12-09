@@ -35,20 +35,24 @@
   <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
   <script type="text/javascript">
 
-    var map = new google.maps.Map(document.getElementById('map'), {
-      zoom: 12,
-      center: new google.maps.LatLng(-37.8180, 144.9760),
-      streetViewControl: true,
-      scaleControl: true, 
-      mapTypeControlOptions: {
-        style: google.maps.MapTypeControlStyle.HORIZONTAL_BAR,
-        position: google.maps.ControlPosition.BOTTOM_CENTER
-      },
-      mapTypeId: google.maps.MapTypeId.ROADMAP
-    });
+    var map;
 
-    map.controls[google.maps.ControlPosition.TOP_CENTER].push(
-      document.getElementById('legend'));
+    function initialize() {
+        map = new google.maps.Map(document.getElementById('map'), {
+          zoom: 12,
+          center: new google.maps.LatLng(-37.8180, 144.9760),
+          streetViewControl: true,
+          scaleControl: true, 
+          mapTypeControlOptions: {
+            style: google.maps.MapTypeControlStyle.HORIZONTAL_BAR,
+            position: google.maps.ControlPosition.BOTTOM_CENTER
+          },
+          mapTypeId: google.maps.MapTypeId.ROADMAP
+        });
+
+        map.controls[google.maps.ControlPosition.TOP_CENTER].push(
+          document.getElementById('legend'));
+    }
 
     var markers  = [];
     var i;
@@ -65,6 +69,7 @@
     $('#date_list').on('change', function() {
       //console.log("data/"+$('#state_list').val()+"/"+this.value+"/show.js");
       clean_markers();
+      initialize();
 
       var infowindow = new google.maps.InfoWindow();
 
@@ -97,9 +102,10 @@
       });
     });
 
+    initialize();
     $( "#date_list" ).trigger( "change" );
 
-    console.log("version: 1.6");
+    console.log("version: 1.7");
   </script>
 </body>
 </html>

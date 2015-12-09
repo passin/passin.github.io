@@ -54,11 +54,13 @@
     var infowindow = new google.maps.InfoWindow();
     var marker  = [];
     var locations = [];
+    var i;
 
     $('#date_list').on('change', function() {
       //alert( this.value ); // or $(this).val()
 
       locations = [];
+      alert(marker.length);
 
       for (var i = 0; i < marker.length; i++) {
         marker[i].setMap(null);
@@ -71,7 +73,6 @@
         //console.log( textStatus ); // Success
         //console.log( jqxhr.status ); // 200
         //console.log( "Load was performed." );
-        var i;
 
 
         for (i = 0; i < locations.length; i++) {  

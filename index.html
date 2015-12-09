@@ -51,15 +51,14 @@
     map.controls[google.maps.ControlPosition.TOP_CENTER].push(
       document.getElementById('legend'));
 
-    var infowindow = new google.maps.InfoWindow();
-    var markers  = [];
-    var locations = [];
+    var window.markers  = [];
     var i;
 
     $('#date_list').on('change', function() {
       //alert( this.value ); // or $(this).val()
 
-      locations = [];
+      var locations = [];
+      var infowindow = new google.maps.InfoWindow();
       alert(window.markers.length);
 
       for (var i = 0; i < window.markers.length; i++) {

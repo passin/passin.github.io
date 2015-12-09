@@ -54,17 +54,21 @@
     var markers  = [];
     var i;
 
-    $('#date_list').on('change', function() {
-      //alert( this.value ); // or $(this).val()
-
-      var infowindow = new google.maps.InfoWindow();
+    function clean_markers() {
       console.log(markers.length);
-
       for (var i = 0; i < markers.length; i++) {
         markers[i].setMap(null);
       }
 
       markers = [];
+    }
+
+    $('#date_list').on('change', function() {
+      //alert( this.value ); // or $(this).val()
+      clean_markers();
+
+      var infowindow = new google.maps.InfoWindow();
+
 
       $.getScript( "data/"+this.value+"/show.js", function( data, textStatus, jqxhr ) {
         console.log( data ); // Data returned
@@ -91,7 +95,7 @@
     });
 
     $( "#date_list" ).trigger( "change" );
-    console.log("version: 1.1");
+    console.log("version: 1.2");
   </script>
 </body>
 </html>

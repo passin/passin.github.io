@@ -54,7 +54,7 @@
     var i;
 
     function clean_markers() {
-      console.log(markers.length);
+      //console.log(markers.length);
       for (var i = 0; i < markers.length; i++) {
         markers[i].setMap(null);
       }
@@ -71,7 +71,7 @@
 
       $.getScript( "data/"+this.value+"/show.js", function( data, textStatus, jqxhr ) {
         //console.log( data ); // Data returned
-        console.log( textStatus ); // Success
+        //console.log( textStatus ); // Success
         //console.log( jqxhr.status ); // 200
         //console.log( "Load was performed." );
 
@@ -97,7 +97,7 @@
 
     $( "#date_list" ).trigger( "change" );
 
-    console.log("version: 1.4");
+    console.log("version: 1.5");
   </script>
 </body>
 </html>

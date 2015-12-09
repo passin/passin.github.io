@@ -21,8 +21,8 @@
   <div id="legend">
       <form id="select_form">
         <select id="state_list">
-          <option value="VIC">VIC</option>
-          <option value="NSW">NSW</option>
+          <option value="vic" selected="selected">VIC</option>
+          <option value="nsw">NSW</option>
         </select>
         <select id="date_list">
           <option value="2015/December/6" selected="selected">2015/December/6</option>
@@ -63,13 +63,13 @@
     }
 
     $('#date_list').on('change', function() {
-      //alert( this.value ); // or $(this).val()
+      console.log("data/"+$('#state_list').val()+"/"+this.value+"/show.js");
       clean_markers();
 
       var infowindow = new google.maps.InfoWindow();
 
 
-      $.getScript( "data/"+this.value+"/show.js", function( data, textStatus, jqxhr ) {
+      $.getScript( "data/"+$('#state_list').val()+"/"+this.value+"/show.js", function( data, textStatus, jqxhr ) {
         //console.log( data ); // Data returned
         //console.log( textStatus ); // Success
         //console.log( jqxhr.status ); // 200
@@ -99,7 +99,7 @@
 
     $( "#date_list" ).trigger( "change" );
 
-    console.log("version: 1.5");
+    console.log("version: 1.6");
   </script>
 </body>
 </html>

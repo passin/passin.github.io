@@ -60,13 +60,13 @@
       //alert( this.value ); // or $(this).val()
 
       locations = [];
-      alert(marker.length);
+      alert(window.marker.length);
 
-      for (var i = 0; i < marker.length; i++) {
-        marker[i].setMap(null);
+      for (var i = 0; i < window.marker.length; i++) {
+        window.marker[i].setMap(null);
       }
 
-      marker = [];
+      window.marker = [];
 
       $.getScript( "data/"+this.value+"/show.js", function( data, textStatus, jqxhr ) {
         //console.log( data ); // Data returned
@@ -76,17 +76,17 @@
 
 
         for (i = 0; i < locations.length; i++) {  
-          marker = new google.maps.Marker({
+          window.marker = new google.maps.Marker({
             position: new google.maps.LatLng(locations[i][1], locations[i][2]),
             map: map
           });
 
-          google.maps.event.addListener(marker, 'click', (function(marker, i) {
+          google.maps.event.addListener(window.marker, 'click', (function(window.marker, i) {
             return function() {
               infowindow.setContent(locations[i][0]);
-              infowindow.open(map, marker);
+              infowindow.open(map, window.marker);
             }
-          })(marker, i));
+          })(window.marker, i));
         }
 
       });

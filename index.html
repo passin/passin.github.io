@@ -50,8 +50,6 @@
           mapTypeId: google.maps.MapTypeId.ROADMAP
         });
 
-        map.controls[google.maps.ControlPosition.TOP_CENTER].push(
-          document.getElementById('legend'));
     }
 
     var markers  = [];
@@ -103,9 +101,10 @@
     });
 
     initialize();
+    map.controls[google.maps.ControlPosition.TOP_CENTER].push(document.getElementById('legend'));
     $( "#date_list" ).trigger( "change" );
 
-    console.log("version: 1.7");
+    console.log("version: 1.8");
   </script>
 </body>
 </html>

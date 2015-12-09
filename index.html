@@ -68,6 +68,7 @@
     $('#date_list').on('change', function() {
       //console.log("data/"+$('#state_list').val()+"/"+this.value+"/show.js");
       clean_markers();
+      map.controls[google.maps.ControlPosition.TOP_CENTER].clear();
       map.controls[google.maps.ControlPosition.TOP_CENTER].push(document.getElementById('legend'));
 
       var infowindow = new google.maps.InfoWindow();
